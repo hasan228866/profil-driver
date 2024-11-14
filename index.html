@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Driver</title>
+    <style>
+        /* Style dasar */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #007bff, #66b2ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        /* Container untuk perspektif 3D */
+        .card-container {
+            perspective: 1500px;
+        }
+
+        /* Kartu profil dengan ketebalan dan animasi flip */
+        .profile-card {
+            width: 350px;
+            height: 500px;
+            position: relative;
+            transition: transform 1s ease;
+            transform-style: preserve-3d;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+        }
+
+        /* Efek flip dengan animasi melayang */
+        .card-container:hover .profile-card {
+            transform: rotateY(180deg) translateY(-10px);
+        }
+
+        /* Efek glowing dan bayangan tambahan pada hover */
+        .card-container:hover .profile-card {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 10px #007bff;
+        }
+
+        /* Sisi depan dan belakang kartu */
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+            transition: transform 0.8s ease;
+        }
+
+        /* Sisi depan kartu */
+        .card-front {
+            background: linear-gradient(135deg, #ffffff, #e6f2ff);
+        }
+
+        /* Lingkaran dan bayangan untuk foto profil */
+        .card-front img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid #007bff;
+            object-fit: cover;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Zoom-in dan efek glowing pada gambar saat hover */
+        .card-container:hover .card-front img {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(0, 123, 255, 0.6);
+        }
+
+        /* Style teks pada sisi depan */
+        .card-front h2 {
+            font-size: 24px;
+            color: #007bff;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .card-front p {
+            color: #555;
+            font-size: 16px;
+            animation: fadeIn 1.5s ease forwards;
+        }
+
+        /* Rating bintang */
+        .rating {
+            color: #ffc107;
+            font-size: 18px;
+            margin-top: 10px;
+            animation: fadeIn 2s ease forwards;
+        }
+
+        /* Sisi belakang kartu */
+        .card-back {
+            background-color: #f0f4f8;
+            color: #333;
+            transform: rotateY(180deg);
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* Judul dan informasi kontak di belakang */
+        .card-back h3 {
+            margin-top: 0;
+            color: #007bff;
+            font-size: 20px;
+        }
+
+        .contact-info, .vehicle-info {
+            color: #007bff;
+            font-weight: bold;
+            font-size: 16px;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        /* Link kontak */
+        .contact-info a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #0056b3;
+        }
+
+        /* Efek FadeIn pada teks */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        <div class="profile-card">
+            <!-- Sisi depan kartu -->
+            <div class="card-front">
+                <img src="wkwk.jpg" alt="Foto Pengemudi">
+                <h2>Hasan</h2>
+                <h2>18 tahun</h2>
+                <p>Driver</p>
+                <div class="rating">
+                    &#9733; &#9733; &#9733; &#9733; &#9734; <!-- 4 dari 5 bintang -->
+                    <p>4.3 (79 ulasan)</p>
+                </div>
+            </div>
+            <!-- Sisi belakang kartu -->
+            <div class="card-back">
+                <h3>Kontak dan Kendaraan</h3>
+                <div class="contact-info">
+                    <p>WhatsApp: <a href="tel:628895885691">628895885691</a></p>
+
+                </div>
+                <div class="vehicle-info">
+                    <h4>Informasi Kendaraan</h4>
+                    <p>Motor: Honda Beat</p>
+                    <p>Plat Nomor: H 2286 AJW</p>
+                    <p>Warna: Merah Putih</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
